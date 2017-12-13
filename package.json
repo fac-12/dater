@@ -1,0 +1,27 @@
+{
+  "name": "dater",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape ./tests/test.js | tap-spec",
+    "start": "node ./src/index.js",
+    "dev": "nodemon ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fac-12/dater.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fac-12/dater/issues"
+  },
+  "homepage": "https://github.com/fac-12/dater#readme",
+  "devDependencies": {
+    "env2": "^2.2.0",
+    "nodemon": "^1.12.5",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.8.0"
+  }
+}
