@@ -1,9 +1,11 @@
 <main>
-    <h2>Blah blah blah Ideas</h2>
+    <h2> {{tag}} Ideas</h2>
     <section>
+      {{#each ideasArr}}
         <ul class="dateIdeasList">
-          {{resultArr}}
+          <li> {{this}} </li>
         </ul>
+      {{/each}}
         <ul class="dateIdeasTags">
 
         </ul>
