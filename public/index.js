@@ -1,3 +1,4 @@
+//add DOM
 var addBtn=document.getElementById('addButton')
 var romanticCheckbox = document.getElementById('Romantic');
 var doubleDateCheckbox = document.getElementById('doubleDate');
@@ -11,7 +12,10 @@ var spontaneousCheckbox = document.getElementById('spontaneous');
 var foodieCheckbox = document.getElementById('foodie');
 var addform=document.getElementById('addForm');
 
+//filter DOM
+var filterBtn = document.getElementsByClassName('filterbtn');
 
+filterBtn.addEventListener('click', request('/result', 'GET', cb, tag))
 
 function request(url, method, cb, body) {
     var xhr = new XMLHttpRequest();
@@ -28,3 +32,4 @@ function request(url, method, cb, body) {
     };
     xhr.open(method, url, true);
     xhr.send(body);
+  }
