@@ -1,9 +1,15 @@
 const path = require('path');
-const resultsQuery = require('./model/queries/resultsByTag');
+const resultsQuery = require('../model/queries/resultsByTag');
 
 exports.get = (req, res) => {
-  console.log(req.params);
-  // get the tag name from the req object and pass into resultsQuery
-  var resultArr = resultsQuery('Romantic')
-  res.render('result', {resultArr});
+  const tag = 'Romantic'
+  resultsQuery(tag)
+  .then(ideas => {
+    var ideasArr = [];
+    ideas.forEach(function(idea){
+      ideasArr.push(idea.idea_name);
+    })
+    res.render('result', {ideasArr, tag})
+  })
+  .catch(err => next(err));
 };
