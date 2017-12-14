@@ -1,15 +1,18 @@
 const path = require('path');
 const resultsQuery = require('../model/queries/resultsByTag');
+const querystring = require('query-string');
 
 exports.get = (req, res) => {
-  const tag = 'Romantic'
+  console.log(req.params)
+ const tag = req.params.tag;
+
   resultsQuery(tag)
-  .then(ideas => {
-    var ideasArr = [];
-    ideas.forEach(function(idea){
-      ideasArr.push(idea.idea_name);
+    .then(ideas => {
+      var ideasArr = [];
+      ideas.forEach(function(idea){
+        ideasArr.push(idea.idea_name);
+      })
+      res.render('result', {ideasArr, tag});
     })
-    res.render('result', {ideasArr, tag})
-  })
-  .catch(err => next(err));
-};
+    .catch(err => console.log(err));
+}

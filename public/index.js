@@ -14,22 +14,13 @@ var addform=document.getElementById('addForm');
 
 //filter DOM
 var filterBtn = document.getElementsByClassName('filterbtn');
+var filterBtnArr = Array.from(filterBtn);
+console.log(filterBtnArr)
 
-filterBtn.addEventListener('click', request('/result', 'GET', cb, tag))
+filterBtnArr.forEach(button => {
+  button.addEventListener('click', function(e){
+    var tag = e.target.textContent.replace(' ', '-');
+    window.location.href='/result/'+tag;
+})
+})
 
-function request(url, method, cb, body) {
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-              console.log('what', JSON.parse(xhr.responseText))
-                cb(null, JSON.parse(xhr.responseText));
-            } else {
-                var errorMessage = JSON.parse(xhr.responseText);
-                cb("Error" + url + " " + errorMessage);
-            }
-        }
-    };
-    xhr.open(method, url, true);
-    xhr.send(body);
-  }
