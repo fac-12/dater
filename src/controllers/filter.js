@@ -1,3 +1,3 @@
 exports.get = (req, res) => {
-  res.render('add');
+  res.render('filter');
 };
