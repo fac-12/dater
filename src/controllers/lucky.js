@@ -1,7 +1,11 @@
 const path = require('path');
-// const lucky = require('./model/databases/queries')
+const feelingLuckyQuery = require('../model/queries/feelinglucky');
 
 exports.get = (req, res) => {
-  //{lucky} needs to be passed in below when query written
-  res.render('feelinglucky');
+  feelingLuckyQuery()
+  .then(lucky => {
+    lucky = lucky[0].idea_name;
+    res.render('feelinglucky', {lucky})
+  })
+  .catch(err => next(err));
 };
