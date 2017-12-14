@@ -1,4 +1,3 @@
-//add DOM
 var addBtn=document.getElementById('addButton')
 var romanticCheckbox = document.getElementById('Romantic');
 var doubleDateCheckbox = document.getElementById('doubleDate');
@@ -15,7 +14,7 @@ var addform=document.getElementById('addForm');
 //filter DOM
 var filterBtn = document.getElementsByClassName('filterbtn');
 var filterBtnArr = Array.from(filterBtn);
-console.log(filterBtnArr)
+
 
 filterBtnArr.forEach(button => {
   button.addEventListener('click', function(e){
@@ -23,4 +22,3 @@ filterBtnArr.forEach(button => {
     window.location.href='/result/'+tag;
 })
 })
-
