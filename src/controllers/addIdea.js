@@ -8,16 +8,15 @@ const addResult={
   tags : Object.keys(req.body).slice(1)
 }
 addQuery(addResult)
-.then (() => {
-  const ideaTag = addResult.tags[0]
-  console.log(ideaTag)
+.then ((x) => {
+  const ideaTag = addResult.tags[0];
   resultsQuery(ideaTag)
   .then(ideas => {
     var ideasArr = [];
     ideas.forEach(function(idea){
       ideasArr.push(idea.idea_name);
     })
-    res.render('result', {ideasArr, ideaTag})
+    res.render('resultAdd', {ideasArr, ideaTag})
   })
   .catch(err => next(err));
 })

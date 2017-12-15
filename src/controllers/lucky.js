@@ -12,7 +12,7 @@ exports.get = (req, res) => {
           res.render('feelinglucky', {
           luckyName, luckyTags})
         })
-
+        .catch(err => next(err));
           })
           .catch(err => next(err));
 };

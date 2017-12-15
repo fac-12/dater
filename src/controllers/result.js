@@ -1,9 +1,12 @@
 const path = require('path');
 const resultsQuery = require('../model/queries/resultsByTag');
 const idQuery=require('../model/queries/idSearch');
+const querystring = require('query-string');
 
 exports.get = (req, res) => {
-  const tag = 'Romantic'
+  console.log(req.params)
+ const tag = req.params.tag;
+
   resultsQuery(tag)
   .then(ideas => {
     var ideasArr = []
@@ -19,7 +22,7 @@ exports.get = (req, res) => {
             res.render('result', {ideasArr, tag})
         }
       })
-
+      .catch(err => next(err));
     })
   .catch(err => next(err));
  })
