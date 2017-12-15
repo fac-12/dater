@@ -17,7 +17,7 @@ router.get('/lucky', lucky.get);
 router.get('/result/:tag', result.get);
 router.post('/addIdea', addIdea.post);
 router.get('/filter', filter.get);
-// router.use(error.client);
-// router.use(error.server);
+router.use(error.client);
+router.use(error.server);
 
 module.exports = router;
