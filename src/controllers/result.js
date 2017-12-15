@@ -22,7 +22,7 @@ exports.get = (req, res) => {
             res.render('result', {ideasArr, tag})
         }
       })
-
+      .catch(err => next(err));
     })
   .catch(err => next(err));
  })
